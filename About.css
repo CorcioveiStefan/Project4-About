@@ -121,7 +121,7 @@ body {
   background: #1a1a1a;
   padding: 45px 10px;
   position: relative;
-  background-image: url("/Assets/UsedParallaxTrees.png"), url("/Assets/UsedParallaxBuildings.png"), url("/Assets/UsedParallaxMoon.png"), url("/Assets/UsedParallaxNightSky.png");
+  background-image: url("Assets/UsedParallaxTrees.png"), url("Assets/UsedParallaxBuildings.png"), url("Assets/UsedParallaxMoon.png"), url("Assets/UsedParallaxNightSky.png");
   background-size: cover, cover, auto 12vw, cover;
   background-position: center bottom, center bottom, right top, center; /* Adjust positions */
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
@@ -130,7 +130,8 @@ body {
 
 .container-nd {
   position: relative;
-  background: url("/Assets/podInchis.png"), url("/Assets/UsedParallaxTreesReflection.png"), url("/Assets/UsedParallaxMoonReflection.png"), linear-gradient(185deg, #5e5d45, #241b38, #0a0f28, #0a0f28);
+  background: url("Assets/UsedParallaxBridge.png"), url("Assets/UsedParallaxTreesReflection.png"), url("Assets/UsedParallaxMoonReflection.png"),
+    linear-gradient(185deg, #5e5d45, #241b38, #0a0f28, #0a0f28);
   background-size: 100% auto, cover, 25vw auto;
   background-position: left bottom, center top right 50px top 45px;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -140,7 +141,7 @@ body {
   flex-direction: column;
 }
 .container-nd .nd-end {
-  background: url("/Assets/pngwing.com\ \(8\)\ \(1\).png"), url("/Assets/pngwing.com\ \(8\)\ \(1\).png");
+  background: url("Assets/pngwing.com\ \(8\)\ \(1\).png"), url("Assets/pngwing.com\ \(8\)\ \(1\).png");
   background-size: auto 100%, auto 100%;
   background-position: center bottom, right 30px bottom -20px;
   background-repeat: repeat, no-repeat;
@@ -151,7 +152,7 @@ body {
 
 .container-rd {
   height: 88vh;
-  background: url("/Assets/pngwing.com\ \(5)\ \(1).png"), black;
+  background: url("Assets/UsedField.png"), black;
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -205,7 +206,7 @@ body {
   width: 162px;
   height: 162px;
   border-radius: 50%;
-  background: url("/Assets/pngwing.com\ \(9\).png") no-repeat center/cover;
+  background: url("Assets/pngwing.com\ \(9\).png") no-repeat center/cover;
   border: 7.5px solid rgb(40, 49, 49);
   transition: transform 0.45s;
   outline: 0.5px solid whitesmoke;
@@ -385,6 +386,21 @@ footer p a:hover,
 .title.hidden {
   transform: translateX(-200px); /* Move to the right */
   opacity: 0;
+}
+
+@media (max-width: 639px) {
+  #contact {
+    height: 70vh;
+  }
+  footer {
+    height: 18vh;
+  }
+  footer p {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: "Exo 2", sans-serif;
+    text-align: center;
+  }
 }
 
 .popup {

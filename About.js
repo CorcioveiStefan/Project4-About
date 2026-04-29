@@ -1,5 +1,4 @@
 let isPlaying = false;
-
 // code for player
 document.addEventListener("DOMContentLoaded", () => {
   const profile = document.getElementById("profile");
@@ -16,19 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Error occurred:", e);
   });
 
-  let lastIndex;
-
   prevButton.addEventListener("click", () => {
     if (!isPlaying) return;
 
     widget.pause();
     widget.getCurrentSoundIndex((index) => {
-      widget.getSounds((sounds) => {
-        lastIndex = sounds.length - 1;
-      });
       setTimeout(() => {
         if (index === 0) {
-          widget.skip(lastIndex);
+          widget.skip(7);
         } else {
           widget.prev();
         }
@@ -42,10 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     widget.pause();
     widget.getCurrentSoundIndex((index) => {
       setTimeout(() => {
-        widget.getSounds((sounds) => {
-          lastIndex = sounds.length - 1;
-        });
-        if (index === lastIndex) {
+        if (index === 7) {
           widget.skip(0);
         } else {
           widget.next();
@@ -63,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       circle.style.display = "block";
       center.style.display = "block";
       audio.style.visibility = "visible";
-      playImg.src = "/Assets/UsedButtonStop.png";
+      playImg.src = "Assets/UsedButtonStop.png";
     } else {
       widget.pause();
       widget.seekTo(0);
@@ -72,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       circle.style.display = "none";
       center.style.display = "none";
       audio.style.visibility = "hidden";
-      playImg.src = "/Assets/UsedButtonPlay.png";
+      playImg.src = "Assets/UsedButtonPlay.png";
     }
     isPlaying = !isPlaying;
   });
