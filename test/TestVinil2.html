@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom SoundCloud Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      /* Center-align text */
+    }
+
+    .widget-container {
+      max-width: 600px;
+      margin: auto;
+      border: 2px solid #ff5500;
+      /* Custom border color */
+      border-radius: 8px;
+      overflow: hidden;
+      /* Round corners */
+      background-color: #ffffff;
+      /* Widget background */
+    }
+
+    .widget-container iframe {
+      width: 100%;
+      height: 166px;
+      /* Standard height for SoundCloud player */
+    }
+
+    #play-button {
+      margin-top: 20px;
+      /* Spacing above button */
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff5500;
+      /* Button color */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #play-button:hover {
+      background-color: #e04e00;
+      /* Darker shade on hover */
+    }
+
+    #volume-control {
+      -webkit-appearance: none;
+      /* Remove default styling */
+      width: 100%;
+      /* Full width */
+      height: 8px;
+      /* Track height */
+      background: #ddd;
+      /* Track color */
+      border-radius: 5px;
+      /* Rounded track */
+      outline: none;
+      /* Remove outline */
+    }
+
+    #volume-control::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      /* Remove default styling */
+      appearance: none;
+      /* Remove default styling */
+      width: 20px;
+      /* Thumb width */
+      height: 20px;
+      /* Thumb height */
+      background: #ff5500;
+      /* Thumb color */
+      border-radius: 50%;
+      /* Round thumb */
+      cursor: pointer;
+      /* Cursor on hover */
+    }
+
+    #volume-control::-moz-range-thumb {
+      width: 20px;
+      /* Thumb width */
+      height: 20px;
+      /* Thumb height */
+      background: #ff5500;
+      /* Thumb color */
+      border-radius: 50%;
+      /* Round thumb */
+      cursor: pointer;
+      /* Cursor on hover */
+    }
+
+    #volume-control::-ms-thumb {
+      width: 20px;
+      /* Thumb width */
+      height: 20px;
+      /* Thumb height */
+      background: #ff5500;
+      /* Thumb color */
+      border-radius: 50%;
+      /* Round thumb */
+      cursor: pointer;
+      /* Cursor on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="widget-container">
+    <iframe id="audio" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1975128624&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+  </div>
+  <button id="prev-button">Prev</button>
+  <button id="play-button">Play</button>
+  <button id="next-button">Next</button> <!-- Custom Play Button -->
+  <input type="range" id="volume-control" min="0" max="100" value="100" style="width: 10%;" />
+
+</body>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const playButton = document.getElementById('play-button');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const volumeControl = document.getElementById('volume-control');
+    const audio = document.getElementById('audio');
+    const widget = SC.Widget(audio);
+
+    widget.bind(SC.Widget.Events.ERROR, function (e) {
+      console.error('Error occurred:', e);
+    });
+
+    let isPlaying = false;
+
+    volumeControl.addEventListener('input', () => {
+      const volumeValue = volumeControl.value;
+      widget.setVolume(volumeValue);
+    });
+
+    prevButton.addEventListener('click', () => {
+      widget.getCurrentSoundIndex((index) => { // Get current sound index
+        if (index == 0) { // Check if current track is the eighth (index 7)
+          widget.skip(7); // Skip to the first track (index 0)
+        } else {
+          widget.prev(); // Otherwise, go to the next track
+        }
+      });
+      playButton.textContent = 'Pause';
+      isPlaying = true;
+    });
+
+    nextButton.addEventListener('click', () => {
+      widget.getCurrentSoundIndex((index) => { // Get current sound index
+        if (index == 7) { // Check if current track is the eighth (index 7)
+          widget.skip(0); // Skip to the first track (index 0)
+        } else {
+          widget.next(); // Otherwise, go to the next track
+        }
+      });
+      playButton.textContent = 'Pause';
+      isPlaying = true;
+    });
+
+
+    playButton.addEventListener('click', () => {
+      if (!isPlaying) {
+        widget.play();
+        playButton.textContent = 'Pause'; // Change button text to Pause
+      } else {
+        widget.pause();
+        widget.seekTo(0);
+        playButton.textContent = 'Play'; // Change button text to Play
+      }
+      isPlaying = !isPlaying; // Toggle play state
+    });
+  });
+</script>
+
+<!-- SoundCloud Widget API -->
+
+</html>

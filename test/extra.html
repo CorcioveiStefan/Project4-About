@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .headerText {
+      user-select: none;
+      font-size: 18px;
+    }
+
+    .header {
+      user-select: none;
+      font-size: 36px;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="header">123</p>
+</body>
+<script>
+  let header = document.querySelector(".header"),
+    index = 0,
+    headerText = document.createElement("p");
+
+  headerText.className = "headerText";
+  document.body.appendChild(headerText);
+
+  let text = ["st", "nd", "rd"];
+
+  header.addEventListener("click", control);
+  headerText.addEventListener("click", control);
+  function control() {
+    if (index == text.length) {
+
+      headerText.textContent = text[index];
+      header.textContent = "123";
+      index = 0;
+
+    }
+    else if (index < text.length) {
+      header.textContent = `${index + 1}`;
+      headerText.textContent = text[index];
+      index++;
+    }
+  }
+
+</script>
+
+</html>

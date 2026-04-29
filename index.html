@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="About.css">
+  <link rel="icon" href="/Assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar">
+    <img onclick="showSection('home')" id="logo" src="Assets/UsedLogo (2).png" alt="">
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <div id="nav-link">
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('projects')">Work</a>
+      <a onclick="showSection('contact')">inTouch</a>
+    </div>
+  </nav>
+  <main class="main" id="home">
+    <div class="container-profile">
+      <div class="pickup">
+        <div class="profile" id="profile">
+          <div class="circle"></div>
+          <div class="center"></div>
+        </div>
+        <div id="arm-container"><img src="/Assets/UsedVinylArm.png" alt=""></div>
+        <div id="knob-container"><img id="volm-button" src="/Assets/UsedButtonVolume.png" draggable="false" />
+        </div>
+        <div id="play-container"><img id="play-button" src="/Assets/UsedButtonPlay.png" alt="Play"></div>
+        <div id="next-container"><img id="next-button" src="/Assets/UsedButtonNext.png" alt="Next"></div>
+        <din id="prev-container"><img id="prev-button" src="/Assets/UsedButtonPrev.png" alt="Prev"></din>
+      </div>
+      <iframe id="audio" width="272px" height="136px" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1975128624&auto_play=false&color=%231b3358&show_artwork=false&show_comments=false&show_playcount=false&hide_related=true&show_user=false&show_reposts=false&liking=false&visual=false&buying=false&sharing=false&download=false
+      "></iframe>
+    </div>
+    <div class="container-nd">
+      <h2 class="title">About Me</h2>
+      <p class="text">Hello, my name is Stefan, and I'm a passionate web developer with a strong eye for detail and a
+        keen curiosity
+        for how things work. <br> I'm also deeply passionate about music, which inspires my creativity in both
+        development and design.</p>
+      <div class="nd-end"></div>
+    </div>
+    <div class="container-rd">
+      <h2 class="title">Work</h2>
+      <p class="text">Currently, I'm diving further into React and TypeScript and expanding my knowledge toward
+        full-stack
+        development. <br>
+        My background in front-end development has led me to build projects that challenge my skills in HTML, CSS,
+        JavaScript, and related technologies. Every project is a new opportunity to grow and refine my <a
+          onclick="showSection('projects')">Work</a>.</p>
+    </div>
+    <div class="container-th">
+      <h2 class="title">inTouch</h2>
+      <p class="text">I approach web development with motivation, dedication, and a constant drive to improve. If you're
+        looking for
+        someone who learns quickly, adapts easily, and brings enthusiasm to every project, I,d love to get <a
+          onclick="showSection('contact')">inTouch</a> and
+        discuss how I can contribute to your team or project!</p>
+    </div>
+  </main>
+  <section id="contact">
+    <div class="contact">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out if you have any questions or opportunities!</p>
+
+      <p><strong>Email:</strong> <a href="mailto:stefancorciovei117@gmail.com">stefancorciovei117@gmail.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+40 762 030 430">+40 762 030 430</a></p>
+
+      <p><strong>Follow me:</strong></p>
+      <p>
+        <a href="https://www.linkedin.com/in/Stefan-Corciovei/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/CorcioveiStefan" target="_blank"> GitHub </a>
+      </p>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="projects">
+      <h2>My Work</h2>
+      <div class="project">
+        <h3>Weather App</h3>
+        <p>This application fetches real-time weather data from an API and translates it into an animated effect that
+          plays immediately after a search.</p>
+        <div class="slideshow-container" id="slider1">
+          <div class="my-slides slides-fade">
+            <div class="slide-number">1 / 5</div>
+            <img src="/Assets/Screenshots/9-senin-zi.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">2 / 5</div>
+            <img src="/Assets/Screenshots/4-ploaie-slab.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">3 / 5</div>
+            <img src="/Assets/Screenshots/18-ninsoare-slab.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">4 / 5</div>
+            <img src="/Assets/Screenshots/13-furtuna-precipitatii.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">5 / 5</div>
+            <img src="/Assets/Screenshots/20-ceata.png" style="width:100%">
+          </div>
+          <a class="slides-prev" onclick="sliders.slider1.plusSlides(-1)">&#10094;</a>
+          <a class="slides-next" onclick="sliders.slider1.plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+          <span class="slide-dot" onclick="sliders.slider1.currentSlide(1)"></span>
+          <span class="slide-dot" onclick="sliders.slider1.currentSlide(2)"></span>
+          <span class="slide-dot" onclick="sliders.slider1.currentSlide(3)"></span>
+          <span class="slide-dot" onclick="sliders.slider1.currentSlide(4)"></span>
+          <span class="slide-dot" onclick="sliders.slider1.currentSlide(5)"></span>
+
+        </div>
+        <div class="project-links">
+          <a href="https://yourprojectlink.com" target="_blank">View Project</a>
+          <a href="https://github.com/yourrepo" target="_blank">GitHub Repo</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>E-Commerce</h3>
+        <p>"An e-commerce website for adding products to cart, favorite and checkout, with filtering, user
+          authentication, and API products for a smooth shopping experience."</p>
+        <div class="slideshow-container" id="slider2">
+          <div class="my-slides slides-fade">
+            <div class="slide-number">1 / 5</div>
+            <img src="/Assets/Screenshots/HomePage.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">2 / 5</div>
+            <img src="/Assets/Screenshots/ShopPage.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">3 / 5</div>
+            <img src="/Assets/Screenshots/CartPage.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">4 / 5</div>
+            <img src="/Assets/Screenshots/SingleProductPage.png" style="width:100%">
+          </div>
+          <div class="my-slides slides-fade">
+            <div class="slide-number">5 / 5</div>
+            <img src="/Assets/Screenshots/CheckoutPage.png" style="width:100%">
+          </div>
+          <a class="slides-prev" onclick="sliders.slider2.plusSlides(-1)">&#10094;</a>
+          <a class="slides-next" onclick="sliders.slider2.plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+        <div style="text-align:center">
+          <span class="slide-dot" onclick="sliders.slider2.currentSlide(1)"></span>
+          <span class="slide-dot" onclick="sliders.slider2.currentSlide(2)"></span>
+          <span class="slide-dot" onclick="sliders.slider2.currentSlide(3)"></span>
+          <span class="slide-dot" onclick="sliders.slider2.currentSlide(4)"></span>
+          <span class="slide-dot" onclick="sliders.slider2.currentSlide(5)"></span>
+
+        </div>
+        <div class="project-links">
+          <a href="https://corcioveistefan.github.io/Proiect-Final/index.html" target="_blank">View Project</a>
+          <a href="https://github.com/yourrepo" target="_blank">GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Stefan Corciovei. No rights reserved.</p>
+    <p><strong>Special thanks</strong> to <a href="#" id="openPopup">These Guys</a> for the resources.</p>
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span id="closePopup" class="close">&times;</span>
+        <p>Special thanks to Pixellab School and my trainer Paul Ghiran. To https://www.pngwing.com for providing free
+          PNG resources. <br> To the talented creators of
+          the music I use in my project. <br> To Photopea for allowing me to edit my images for free. <br> To the
+          YouTube creators who
+          shared their
+          knowledge and to AI for helping me debug and solve countless issues along the way.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script src="/About.js"></script>
+
+</html>
