@@ -175,6 +175,7 @@ function initSlider(sliderId) {
 const sliders = {
   slider1: initSlider("slider1"),
   slider2: initSlider("slider2"),
+  slider3: initSlider("slider3"),
 };
 // knob
 const knob = document.getElementById("knob-container");
